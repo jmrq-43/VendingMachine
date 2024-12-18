@@ -2,6 +2,7 @@ package domain;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.StringJoiner;
 
 public class Snack implements Serializable {
     private static int countSnack = 0;
@@ -66,5 +67,14 @@ public class Snack implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(idSnack, name, price);
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Snack.class.getSimpleName() + "[", "]")
+                .add("idSnack=" + idSnack)
+                .add("name='" + name + "'")
+                .add("price=" + price)
+                .toString();
     }
 }
